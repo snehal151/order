@@ -12,38 +12,17 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
-    public void postOrder(@RequestBody OrderDomain order)
+    public void postOrder(@RequestBody OrderDomain order) {
+        System.out.println("In Post");
+        orderService.orderList(order);
 
-        {
-            System.out.println("In Post");
-            orderService.orderList(order);
-
-        }
-        @GetMapping
-        public String getOrder ()
-    public OrderDomain somethingToGet(@PathVariable int id) {
-
-        {
-            System.out.println("In Get");
-
-            return orderService.getOrder(id);
-
-        }
     }
-
-/*
-////
-public void postCompany(@RequestBody Company company) {
-    logger.info("postCompany: start");
-    companyService.orderList(order);
-    logger.info("postCompany: finish");
-}
 
     @GetMapping("/{id}")
-    public Company somethingToGet(@PathVariable int id) {
-        logger.info("getCompany: start");
-        return companyService.getCompany(id);
+    public OrderDomain somethingToGet(@PathVariable int id) {
+        {
+            System.out.println("In Get");
+            return orderService.getOrderDomain(id);
+        }
     }
-
 }
-*/
