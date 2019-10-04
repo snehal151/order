@@ -11,10 +11,11 @@ public class OrderService {
 
     List<OrderDomain> orderlist = new ArrayList<>();
 
-    public void orderList(OrderDomain order) {
+    public OrderDomain orderList(OrderDomain order) {
         int nId = orderlist.size() + 1;
         order.setId(nId);
         orderlist.add(order);
+        return order;
     }
 
     public OrderDomain getOrderDomain(int id) {
@@ -25,6 +26,9 @@ public class OrderService {
                 return tOrder;
             }
         }
-        throw new RuntimeException("Company with id " + id + " Not found");
+        return null;
+    }
+    public List<OrderDomain> getAllOrders() {
+       return orderlist;
     }
 }
